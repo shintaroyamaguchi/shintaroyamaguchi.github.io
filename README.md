@@ -1,0 +1,1 @@
+# shintaroyamaguchi.github.io
