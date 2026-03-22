@@ -144,6 +144,49 @@
       margin-bottom: 1.75rem;
     }
 
+    /* ── Advisory table ──────────────────────────────────────────── */
+    .advisory-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .advisory-table th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--navy);
+      padding: 0.35rem 0.75rem 0.35rem 0;
+    }
+
+    .advisory-table td {
+      padding: 0.55rem 0.75rem 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+      font-size: 0.875rem;
+      color: var(--gray-dk);
+    }
+
+    .advisory-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .advisory-table .col-period {
+      white-space: nowrap;
+      color: var(--gray-lt);
+      font-size: 0.82rem;
+      width: 100px;
+    }
+
+    .advisory-table .col-org {
+      white-space: nowrap;
+      width: 130px;
+      color: var(--gray);
+      font-size: 0.82rem;
+    }
+
     /* ── Advisory / Engagement list ──────────────────────────────── */
     .engage-list {
       list-style: none;
@@ -321,27 +364,54 @@
 
   <h1 class="page-title">Policy &amp; Media</h1>
 
+  <!-- Profile links -->
+  <p style="margin-bottom: 2.5rem; font-size: 0.875rem; color: var(--gray);">
+    <a href="https://scholar.google.com/citations?user=gEKnqc8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://www.iza.org/person/31714/shintaro-yamaguchi" target="_blank" rel="noopener">IZA</a>
+    &nbsp;&middot;&nbsp;
+    <a href="cv.html">Full CV</a>
+  </p>
+
   <!-- Policy Advisory -->
   <section class="section">
     <h2 class="section-title">Policy Advisory</h2>
-    <ul class="engage-list">
-      <li class="engage-item">
-        <span class="engage-cat">Cabinet Office</span>
-        <span class="engage-name">Member, Council for Gender Equality (Private Sector Member)</span>
-      </li>
-      <li class="engage-item">
-        <span class="engage-cat">Government / Parliament</span>
-        <span class="engage-name">Invited testimony and advisory to Cabinet Office, Ministry of Health, Labour and Welfare, Children and Families Agency, Ministry of Finance, National Diet (House of Representatives &amp; House of Councillors), and others</span>
-      </li>
-      <li class="engage-item">
-        <span class="engage-cat">International</span>
-        <span class="engage-name">UN Global Compact Network Japan, and others</span>
-      </li>
-      <li class="engage-item">
-        <span class="engage-cat">Business / Think Tanks</span>
-        <span class="engage-name">Keidanren, Keizai Doyukai, Japan Chamber of Commerce and Industry, RIETI, Policy Research Institute (Ministry of Finance), and others</span>
-      </li>
-    </ul>
+
+    <table class="advisory-table">
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Role</th>
+          <th class="col-period">Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cabinet Office</td>
+          <td>Private Sector Member, Council for Gender Equality</td>
+          <td class="col-period">2021–present</td>
+        </tr>
+        <tr>
+          <td>Cabinet Office</td>
+          <td>Member, Expert Committee on Plan Implementation and Monitoring</td>
+          <td class="col-period">2021–present</td>
+        </tr>
+        <tr>
+          <td>Financial Services Agency</td>
+          <td>Co-Chair, Data &amp; Metrics Subcommittee, Impact Consortium</td>
+          <td class="col-period">2024–present</td>
+        </tr>
+        <tr>
+          <td>Children and Families Agency</td>
+          <td>Member, Expert Panel on "Corporate Vision for Growing Together with Children"</td>
+          <td class="col-period">2026–present</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--gray); line-height: 1.75;">
+      Has also provided invited testimony and advisory to the Ministry of Health, Labour and Welfare; Ministry of Finance; National Diet (both chambers); prefectural governments; Keidanren; Keizai Doyukai; RIETI; UN Global Compact Network Japan; and others.
+    </p>
   </section>
 
   <!-- Industry Collaboration -->
