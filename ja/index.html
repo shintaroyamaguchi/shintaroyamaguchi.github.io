@@ -195,6 +195,54 @@
       margin-bottom: 1.5rem;
     }
 
+    /* ── Nav Cards ────────────────────────────────────────────────── */
+    .nav-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .nav-card {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      background: var(--bg-lt);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .nav-card:hover {
+      border-color: var(--blue-lt);
+      background: #f0f5ff;
+      text-decoration: none;
+    }
+
+    .nav-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-card-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    .nav-card-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--blue);
+    }
+
+    @media (max-width: 640px) {
+      .nav-cards { grid-template-columns: 1fr; }
+    }
+
     /* ── Contact CTA ──────────────────────────────────────────────── */
     .contact-cta {
       font-size: 0.95rem;
@@ -236,7 +284,7 @@
 <!-- ── Navigation ──────────────────────────────────────────────────── -->
 <header>
   <nav>
-    <span class="nav-name">山口慎太郎</span>
+    <a href="index.html" class="nav-name">山口慎太郎</a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="index.html" class="active">ホーム</a></li>
@@ -270,6 +318,29 @@
 
     </div>
   </section>
+
+  <!-- ナビカード -->
+  <div class="nav-cards">
+
+    <a class="nav-card" href="books.html">
+      <p class="nav-card-title">著書</p>
+      <p class="nav-card-desc">『「家族の幸せ」の経済学』（サントリー学芸賞）、『子育て支援の経済学』（日経・経済図書文化賞）ほか</p>
+      <span class="nav-card-link">著書一覧 →</span>
+    </a>
+
+    <a class="nav-card" href="activities.html">
+      <p class="nav-card-title">メディア・講演</p>
+      <p class="nav-card-desc">NHK・日本経済新聞（連載コラム）をはじめ主要メディアに多数出演。政府・経済団体・民間企業への講演実績あり</p>
+      <span class="nav-card-link">実績を見る →</span>
+    </a>
+
+    <a class="nav-card" href="collaboration.html">
+      <p class="nav-card-title">共同研究・アドバイザリー</p>
+      <p class="nav-card-desc">女性活躍推進・男性育休・ジェンダー賃金格差をテーマに、企業・自治体・NPOとの共同研究やアドバイザリーを実施</p>
+      <span class="nav-card-link">詳しく見る →</span>
+    </a>
+
+  </div>
 
   <!-- お問い合わせ -->
   <section class="section">

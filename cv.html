@@ -120,6 +120,9 @@
       padding: 3.5rem 2rem 5rem;
     }
 
+    /* Print-only header (hidden on screen) */
+    .print-header { display: none; }
+
     /* Page title row */
     .page-header {
       display: flex;
@@ -404,7 +407,7 @@
 <main>
 
   <!-- 印刷時のみ表示するヘッダー -->
-  <div class="print-header" style="display:none;">
+  <div class="print-header">
     <h1>Shintaro Yamaguchi</h1>
     <p>
       Professor, Faculty of Economics, University of Tokyo<br>
@@ -787,7 +790,7 @@
     <ul class="cv-list">
       <li class="cv-item">
         <span class="cv-year">2022</span>
-        <span class="cv-detail">Ishikawa Prize, Japan Economic Association</span>
+        <span class="cv-detail">Ishikawa Prize, Japan Economic Association <span class="inst">(awarded to economists within 15 years of PhD)</span></span>
       </li>
       <li class="cv-item">
         <span class="cv-year">2021</span>
