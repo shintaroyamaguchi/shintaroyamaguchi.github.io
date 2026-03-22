@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy & Media | Shintaro Yamaguchi</title>
+  <meta name="description" content="Policy advisory, industry collaboration, and media activities of Shintaro Yamaguchi (University of Tokyo). Government advisory roles, joint research with firms, and major media appearances.">
+  <meta name="author" content="Shintaro Yamaguchi">
+  <link rel="canonical" href="https://shintaroyamaguchi.github.io/policy.html">
+  <meta property="og:title" content="Policy & Media | Shintaro Yamaguchi">
+  <meta property="og:description" content="Policy advisory, industry collaboration, and media activities of Professor Shintaro Yamaguchi.">
+  <meta property="og:url" content="https://shintaroyamaguchi.github.io/policy.html">
+  <meta property="og:type" content="website">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    /* ── Header / Nav ─────────────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── Main ─────────────────────────────────────────────────────── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 2.75rem;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────── */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Advisory / Engagement list ──────────────────────────────── */
+    .engage-list {
+      list-style: none;
+    }
+
+    .engage-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      align-items: baseline;
+    }
+
+    .engage-item:last-child {
+      border-bottom: none;
+    }
+
+    .engage-cat {
+      font-size: 0.82rem;
+      color: var(--gray-lt);
+      white-space: nowrap;
+    }
+
+    .engage-name {
+      color: var(--gray-dk);
+      line-height: 1.6;
+    }
+
+    /* ── Research collaboration cards ────────────────────────────── */
+    .collab-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .collab-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .collab-item:last-child {
+      border-bottom: none;
+    }
+
+    .collab-org {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .collab-desc {
+      font-size: 0.92rem;
+      color: var(--gray-dk);
+      line-height: 1.75;
+    }
+
+    .collab-desc a {
+      font-size: 0.85rem;
+    }
+
+    .collab-note {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── Media tags ──────────────────────────────────────────────── */
+    .media-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .media-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-lt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      color: var(--gray-dk);
+      background: var(--bg-lt);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* ── Featured ────────────────────────────────────────────────── */
+    .featured {
+      margin-bottom: 1.75rem;
+      padding: 1rem 1.25rem;
+      background: #f0f5ff;
+      border: 1px solid #c5d8f5;
+      border-left: 4px solid var(--blue);
+      border-radius: 4px;
+    }
+
+    .featured-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .featured-body {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .featured-sub {
+      font-size: 0.875rem;
+      color: var(--gray);
+      margin-top: 0.15rem;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .engage-item { grid-template-columns: 1fr; gap: 0.1rem; }
+      .engage-cat { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────── -->
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">Shintaro Yamaguchi</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="policy.html" class="active">Policy & Media</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="ja/index.html">日本語</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ── Main Content ─────────────────────────────────────────────────── -->
+<main>
+
+  <h1 class="page-title">Policy &amp; Media</h1>
+
+  <!-- Policy Advisory -->
+  <section class="section">
+    <h2 class="section-title">Policy Advisory</h2>
+    <ul class="engage-list">
+      <li class="engage-item">
+        <span class="engage-cat">Cabinet Office</span>
+        <span class="engage-name">Member, Council for Gender Equality (Private Sector Member)</span>
+      </li>
+      <li class="engage-item">
+        <span class="engage-cat">Government / Parliament</span>
+        <span class="engage-name">Invited testimony and advisory to Cabinet Office, Ministry of Health, Labour and Welfare, Children and Families Agency, Ministry of Finance, National Diet (House of Representatives &amp; House of Councillors), and others</span>
+      </li>
+      <li class="engage-item">
+        <span class="engage-cat">International</span>
+        <span class="engage-name">UN Global Compact Network Japan, and others</span>
+      </li>
+      <li class="engage-item">
+        <span class="engage-cat">Business / Think Tanks</span>
+        <span class="engage-name">Keidanren, Keizai Doyukai, Japan Chamber of Commerce and Industry, RIETI, Policy Research Institute (Ministry of Finance), and others</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Industry Collaboration -->
+  <section class="section">
+    <h2 class="section-title">Industry Collaboration</h2>
+    <ul class="collab-list">
+
+      <li class="collab-item">
+        <p class="collab-org">Shiseido</p>
+        <p class="collab-desc">
+          Principal researcher at the Shiseido DE&amp;I Lab (launched 2023). Using internal HR and performance data to analyze the drivers of gender gaps in role assignment and performance evaluation, and to develop and test methods for measuring and correcting unconscious bias.
+          <a href="https://corp.shiseido.com/dei-lab/en/" target="_blank" rel="noopener">→ Shiseido DE&amp;I Lab</a>
+        </p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">Shikishima Baking (Pasco)</p>
+        <p class="collab-desc">
+          Empirical analysis of work-life balance and D&amp;I initiatives using internal company data. Involved as an advisor from the design stage of the HR interventions.
+        </p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">Evidence Studio / Fathering Japan (NPO)</p>
+        <p class="collab-desc">
+          Randomized controlled trial (RCT) evaluating the effectiveness of a training program aimed at promoting paternal leave take-up. Quantitatively assessing impacts on leave rates and workplace attitudes.
+        </p>
+        <p class="collab-note">Paper in preparation</p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">Other</p>
+        <p class="collab-desc">
+          Ongoing joint research and advisory engagements with additional firms, local governments, and NPOs.
+        </p>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Media -->
+  <section class="section">
+    <h2 class="section-title">Media</h2>
+
+    <div class="featured">
+      <p class="featured-label">Regular Column</p>
+      <p class="featured-body">"Diversity: My Perspective" — <em>Nihon Keizai Shimbun</em> (Nikkei)</p>
+    </div>
+
+    <div class="media-block">
+      <p class="media-label">Television &amp; Radio</p>
+      <div class="tag-group">
+        <span class="tag">NHK</span>
+        <span class="tag">TV Asahi</span>
+        <span class="tag">TBS</span>
+        <span class="tag">NTV</span>
+        <span class="tag">Fuji TV</span>
+        <span class="tag">TV Tokyo</span>
+        <span class="tag">AbemaTV</span>
+        <span class="tag">J-WAVE</span>
+        <span class="tag">Nippon Broadcasting System</span>
+        <span class="tag">and others</span>
+      </div>
+    </div>
+
+    <div class="media-block">
+      <p class="media-label">Newspapers</p>
+      <div class="tag-group">
+        <span class="tag">Nikkei</span>
+        <span class="tag">Asahi Shimbun</span>
+        <span class="tag">Yomiuri Shimbun</span>
+        <span class="tag">Mainichi Shimbun</span>
+        <span class="tag">Sankei Shimbun</span>
+        <span class="tag">Kyodo News</span>
+        <span class="tag">and others</span>
+      </div>
+    </div>
+
+    <div class="media-block">
+      <p class="media-label">Magazines &amp; Online</p>
+      <div class="tag-group">
+        <span class="tag">Bungei Shunju</span>
+        <span class="tag">Chuo Koron</span>
+        <span class="tag">Toyo Keizai</span>
+        <span class="tag">Diamond</span>
+        <span class="tag">Nikkei Business</span>
+        <span class="tag">President</span>
+        <span class="tag">Forbes Japan</span>
+        <span class="tag">NewsPicks</span>
+        <span class="tag">and others</span>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────────────────── -->
+<footer>
+  <p>Shintaro Yamaguchi &nbsp;&middot;&nbsp; University of Tokyo &nbsp;&middot;&nbsp;
+  Last updated March 2026 &nbsp;&middot;&nbsp;
+  <a href="https://x.com/sy_mc" target="_blank" rel="noopener" style="color:inherit;">X (Twitter)</a></p>
+</footer>
+
+</body>
+</html>

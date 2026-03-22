@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>共同研究・アドバイザリー | 山口慎太郎</title>
+  <meta name="description" content="山口慎太郎（東京大学）との共同研究・アドバイザリーのご案内。女性活躍・男性育休・ジェンダー賃金格差など労働・家族政策を経済学の手法で分析。資生堂・敷島製パンなど連携実績あり。">
+  <meta name="author" content="山口慎太郎">
+  <link rel="canonical" href="https://shintaroyamaguchi.github.io/ja/collaboration.html">
+  <meta property="og:title" content="共同研究・アドバイザリー | 山口慎太郎">
+  <meta property="og:description" content="女性活躍・男性育休・ジェンダー賃金格差の共同研究・アドバイザリー。資生堂・敷島製パンなど連携実績あり。">
+  <meta property="og:url" content="https://shintaroyamaguchi.github.io/ja/collaboration.html">
+  <meta property="og:type" content="website">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -176,6 +183,59 @@
       line-height: 1.75;
     }
 
+    /* ── Process Steps ─────────────────────────────────────────────── */
+    .process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      counter-reset: none;
+    }
+
+    .process-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .process-item:last-child {
+      border-bottom: none;
+    }
+
+    .process-num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+
+    .process-body {
+      flex: 1;
+    }
+
+    .process-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .process-desc {
+      font-size: 0.92rem;
+      color: var(--gray-dk);
+      line-height: 1.75;
+    }
+
     /* ── Collaboration Items ───────────────────────────────────────── */
     .collab-list {
       list-style: none;
@@ -282,6 +342,44 @@
     </div>
   </section>
 
+  <!-- ③ 進め方 -->
+  <section class="section">
+    <h2 class="section-title">進め方</h2>
+    <p class="lead" style="margin-bottom: 1.5rem;">
+      守秘義務に配慮しながら、段階を踏んで丁寧に進めます。まずはご相談だけでも歓迎です。
+    </p>
+    <ol class="process-list">
+      <li class="process-item">
+        <span class="process-num">1</span>
+        <div class="process-body">
+          <p class="process-title">ご相談</p>
+          <p class="process-desc">関心のあるテーマや課題について、まずはメールでお気軽にご連絡ください。内容の実現可能性や方向性についてざっくばらんにお話しします。</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <span class="process-num">2</span>
+        <div class="process-body">
+          <p class="process-title">秘密保持契約（NDA）の締結</p>
+          <p class="process-desc">具体的な検討に入る前に秘密保持契約を締結します。貴社のデータや施策に関する情報を安心してご共有いただける体制を整えた上で、共同研究・アドバイザリーの実現可能性を詳しく検討します。</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <span class="process-num">3</span>
+        <div class="process-body">
+          <p class="process-title">共同研究契約の締結</p>
+          <p class="process-desc">研究・アドバイザリーの内容・スコープ・成果物・期間・費用などの条件について合意し、正式な契約を締結します。</p>
+        </div>
+      </li>
+      <li class="process-item">
+        <span class="process-num">4</span>
+        <div class="process-body">
+          <p class="process-title">実施・成果発信</p>
+          <p class="process-desc">データ分析や施策設計のアドバイザリーを実施します。共同研究の場合は学術論文として成果を発表するほか、ご希望に応じてプレスリリースの発出など対外的な情報発信もご一緒に検討します。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
   <!-- ④ 連携実績 -->
   <section class="section">
     <h2 class="section-title">連携実績</h2>
@@ -324,7 +422,8 @@
 
 <footer>
   <p>山口慎太郎 &nbsp;&middot;&nbsp; 東京大学大学院経済学研究科 &nbsp;&middot;&nbsp;
-  最終更新：2026年3月</p>
+  最終更新：2026年3月 &nbsp;&middot;&nbsp;
+  <a href="https://x.com/sy_mc" target="_blank" rel="noopener" style="color:inherit;">X (Twitter)</a></p>
 </footer>
 
 </body>
