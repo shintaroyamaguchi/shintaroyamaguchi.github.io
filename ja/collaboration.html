@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>共同研究・アドバイザリー | 山口慎太郎</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.75;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Contact CTA ───────────────────────────────────────────────── */
+    .contact-cta {
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-dk);
+    }
+
+    /* ── Lead ──────────────────────────────────────────────────────── */
+    .lead {
+      font-size: 0.96rem;
+      color: var(--gray-dk);
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    /* ── Sections ──────────────────────────────────────────────────── */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Service Cards ─────────────────────────────────────────────── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--bg-lt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .service-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card-desc {
+      font-size: 0.92rem;
+      color: var(--gray-dk);
+      line-height: 1.75;
+    }
+
+    /* ── Collaboration Items ───────────────────────────────────────── */
+    .collab-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .collab-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .collab-item:last-child {
+      border-bottom: none;
+    }
+
+    .collab-org {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .collab-desc {
+      font-size: 0.92rem;
+      color: var(--gray-dk);
+      line-height: 1.75;
+    }
+
+    .collab-desc a {
+      font-size: 0.85rem;
+    }
+
+    .collab-note {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .service-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">山口慎太郎</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="books.html">著書</a></li>
+        <li><a href="activities.html">メディア・講演</a></li>
+        <li><a href="collaboration.html" class="active">共同研究・アドバイザリー</a></li>
+        <li><a href="cv.html">略歴</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="../index.html">English</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <h1 class="page-title">共同研究・アドバイザリー</h1>
+
+  <!-- ① お問い合わせ -->
+  <div class="contact-cta">
+    共同研究・アドバイザリーのご相談はお気軽にご連絡ください。<br>
+    <a href="mailto:syamaguchi@e.u-tokyo.ac.jp">syamaguchi@e.u-tokyo.ac.jp</a>
+  </div>
+
+  <!-- ② 依頼できること（リード文を含む） -->
+  <section class="section">
+    <h2 class="section-title">対応内容</h2>
+    <p class="lead" style="margin-bottom: 1.75rem;">
+      労働・家族・教育に関わる政策や人事施策について、経済学の手法を用いた共同研究およびアドバイザリーを行っている。女性活躍推進、男性育休、保育・少子化対策、ジェンダー賃金格差など、テーマは幅広く対応できる。
+    </p>
+    <div class="service-grid">
+      <div class="service-card">
+        <p class="service-card-title">共同研究</p>
+        <p class="service-card-desc">人事データや独自調査のデータを用いた実証分析。成果は学術論文として発表することを前提とする。</p>
+      </div>
+      <div class="service-card">
+        <p class="service-card-title">アドバイザリー</p>
+        <p class="service-card-desc">施策・取り組みの効果検証、社内調査・サーベイの設計レビュー、分析結果の解釈、エビデンスに基づく施策立案への助言。論文化を前提としない形での協力も可能。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 連携実績 -->
+  <section class="section">
+    <h2 class="section-title">連携実績</h2>
+    <ul class="collab-list">
+
+      <li class="collab-item">
+        <p class="collab-org">資生堂</p>
+        <p class="collab-desc">
+          2023年発足の「資生堂DE&amp;Iラボ」に主幹研究者として参画。社内の人事・業績データを用いて、役割配置・業績評価におけるジェンダー格差の要因分析と、アンコンシャスバイアスの測定・是正手法の検証を実施。成果は順次DE&amp;Iラボのウェブサイトで公開されている。
+          <a href="https://corp.shiseido.com/dei-lab/ja/" target="_blank" rel="noopener">→ DE&amp;Iラボ（資生堂）</a>
+        </p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">敷島製パン</p>
+        <p class="collab-desc">
+          ワークライフバランスおよびD&amp;I推進を目的とした人事施策の効果について、社内データを用いた実証分析を実施。施策の設計段階からアドバイザリーとして関与した。
+        </p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">Evidence Studio / NPO法人ファザーリングジャパン</p>
+        <p class="collab-desc">
+          男性育休取得の促進を目的とした研修プログラムを対象に、ランダム化比較試験（RCT）の手法を用いてその効果を検証。育休取得率や職場意識への影響を定量的に分析している。
+        </p>
+        <p class="collab-note">論文準備中</p>
+      </li>
+
+      <li class="collab-item">
+        <p class="collab-org">その他</p>
+        <p class="collab-desc">
+          上記のほか、複数の企業・自治体・NPOと共同研究およびアドバイザリーを進めている。
+        </p>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>山口慎太郎 &nbsp;&middot;&nbsp; 東京大学大学院経済学研究科 &nbsp;&middot;&nbsp;
+  最終更新：2026年3月</p>
+</footer>
+
+</body>
+</html>

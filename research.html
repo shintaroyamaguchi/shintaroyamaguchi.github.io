@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research | Shintaro Yamaguchi</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --font:    'Georgia', 'Times New Roman', serif;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-title {
+      font-style: normal;
+      color: var(--gray-dk);
+      display: block;
+      margin-bottom: 0.25rem;
+      line-height: 1.45;
+    }
+
+    .pub-title a {
+      color: var(--gray-dk);
+    }
+
+    .pub-title a:hover {
+      color: var(--blue);
+    }
+
+    .pub-meta {
+      color: var(--gray);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .pub-meta .journal {
+      font-style: italic;
+    }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">Shintaro Yamaguchi</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="ja/index.html">日本語</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <h1 class="page-title">Research</h1>
+
+  <!-- Working Papers -->
+  <section class="section">
+    <h2 class="section-title">Working Papers</h2>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://ssrn.com/abstract=5134001">"Unpacking the Child Penalty Using Personnel Data: How Promotion Practices Widen the Gender Pay Gap"</a>
+        </span>
+        <span class="pub-meta">
+          with Yoko Okuyama and Takeshi Murooka, February 2025
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">"Monopsony in a Two-Sided Matching Market"</span>
+        <span class="pub-meta">
+          with Daisuke Adachi and Suk Joon Son, April 2025
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">"Workplace Culture and Paternal Involvement in Childcare"</span>
+        <span class="pub-meta">
+          with Mari Tanaka, Hiroko Okudaira, and Mariko Sakka, November 2025
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Publications -->
+  <section class="section">
+    <h2 class="section-title">Publications</h2>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.jpubeco.2025.105353">"Universal Early Childhood Education and Adolescent Risky Behavior"</a>
+        </span>
+        <span class="pub-meta">
+          with Michihito Ando and Hiroaki Mori<br>
+          <span class="journal">Journal of Public Economics</span>, Vol. 245, Article 105353, April 2025
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1007/s11150-023-09682-6">"Working From Home Leads to More Family-Oriented Men"</a>
+        </span>
+        <span class="pub-meta">
+          with Chihiro Inoue and Yusuke Ishihata<br>
+          <span class="journal">Review of Economics of the Household</span>, Vol. 22, No. 2, pp. 783–829, June 2024
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.labeco.2023.102392">"Month-of-Birth Effects on Skills and Skill Formation"</a>
+        </span>
+        <span class="pub-meta">
+          with Hirotake Ito and Makiko Nakamuro<br>
+          <span class="journal">Labour Economics</span>, Vol. 84, Article 102392, October 2023
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.jjie.2023.101256">"COVID-19 and the Employment Gender Gap in Japan"</a>
+        </span>
+        <span class="pub-meta">
+          with Taiyo Fukai, Masato Ikeda, and Daiji Kawaguchi<br>
+          <span class="journal">Journal of the Japanese and International Economies</span>, Vol. 68, Article 101256, June 2023
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1007/s42973-021-00079-7">"Online Learning During School Closure Due to COVID-19"</a>
+        </span>
+        <span class="pub-meta">
+          with Masato Ikeda<br>
+          <span class="journal">Japanese Economic Review</span>, Vol. 72, No. 3, pp. 471–507, July 2021
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.japwor.2019.100977">"Effects of Class-Size Reduction on Cognitive and Non-cognitive Skills"</a>
+        </span>
+        <span class="pub-meta">
+          with Hirotake Ito and Makiko Nakamuro<br>
+          <span class="journal">Japan and the World Economy</span>, Vol. 53, Article 100977, March 2020
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.3982/QE965">"Effects of Parental Leave Policies on Female Career and Fertility Choices"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Quantitative Economics</span>, Vol. 10, Issue 3, pp. 1195–1232, July 2019
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.labeco.2018.08.006">"How Does Early Childcare Enrollment Affect Children, Parents, and Their Interactions?"</a>
+        </span>
+        <span class="pub-meta">
+          with Yukiko Asai and Ryo Kambayashi<br>
+          <span class="journal">Labour Economics</span>, Vol. 55, pp. 56–71, December 2018
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.labeco.2018.07.009">"Effects of Subsidized Childcare on Mothers' Labor Supply Under a Rationing Mechanism"</a>
+        </span>
+        <span class="pub-meta">
+          with Yukiko Asai and Ryo Kambayashi<br>
+          <span class="journal">Labour Economics</span>, Vol. 55, pp. 1–17 (lead article), December 2018
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.3368/jhr.53.1.1214-6813R2">"Changes in Returns to Task-Specific Skills and Gender Wage Gap"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Journal of Human Resources</span>, Vol. 53, No. 1, pp. 32–70, January 2018
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1111/jere.12136">"Family Policies and Female Employment in Japan"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Japanese Economic Review</span>, Vol. 68, No. 3, pp. 305–322, September 2017
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.jjie.2015.05.009">"Childcare Availability, Household Structure, and Maternal Employment"</a>
+        </span>
+        <span class="pub-meta">
+          with Yukiko Asai and Ryo Kambayashi<br>
+          <span class="journal">Journal of the Japanese and International Economies</span>, Vol. 38, pp. 172–192, December 2015
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.jebo.2015.03.011">"Compensating Wage Differentials in Stable Job Matching Equilibrium"</a>
+        </span>
+        <span class="pub-meta">
+          with Seungjin Han<br>
+          <span class="journal">Journal of Economic Behavior and Organization</span>, Vol. 114, pp. 36–45, June 2015
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1257/aer.104.5.354">"Labor Supply and Household Dynamics"</a>
+        </span>
+        <span class="pub-meta">
+          with Maurizio Mazzocco and Claudia Ruiz<br>
+          <span class="journal">American Economic Review: Papers &amp; Proceedings</span>, Vol. 104, No. 5, pp. 354–359, May 2014
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1086/662066">"Tasks and Heterogeneous Human Capital"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Journal of Labor Economics</span>, Vol. 30, No. 1, pp. 1–53 (lead article), January 2012
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1002/hec.1616">"Cumulative Effects of Job Characteristics on Health"</a>
+        </span>
+        <span class="pub-meta">
+          with Jason Fletcher and Jody Sindelar<br>
+          <span class="journal">Health Economics</span>, Vol. 20, No. 5, pp. 553–570, May 2011
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.labeco.2010.01.006">"Career Progression and Comparative Advantage"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Labour Economics</span>, Vol. 17, No. 4, pp. 679–689, August 2010
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1086/651954">"Job Search, Bargaining, and Wage Dynamics"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Journal of Labor Economics</span>, Vol. 28, No. 3, pp. 595–631, July 2010
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.1016/j.labeco.2009.07.002">"The Effect of Match Quality and Specific Experience on Career Decisions and Wage Growth"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Labour Economics</span>, Vol. 17, No. 2, pp. 407–423, April 2010
+        </span>
+      </li>
+
+      <li class="pub-item">
+        <span class="pub-title">
+          <a href="https://doi.org/10.2753/EEE0012-8775460204">"Wage Flexibility in Turbulent Times"</a>
+        </span>
+        <span class="pub-meta">
+          <span class="journal">Eastern European Economics</span>, Vol. 46, No. 2, pp. 88–114, March–April 2008
+        </span>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Shintaro Yamaguchi &nbsp;&middot;&nbsp; University of Tokyo &nbsp;&middot;&nbsp;
+  Last updated March 2026</p>
+</footer>
+
+</body>
+</html>

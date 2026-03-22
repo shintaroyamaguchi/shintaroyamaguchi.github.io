@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV | Shintaro Yamaguchi</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* Page title row */
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .pdf-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      padding: 4px 14px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .pdf-link:hover {
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Sections */
+    .cv-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* CV entries */
+    .cv-list {
+      list-style: none;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.5rem 1.25rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .cv-item:last-child {
+      border-bottom: none;
+    }
+
+    .cv-year {
+      color: var(--gray-lt);
+      font-size: 0.85rem;
+      padding-top: 0.05rem;
+      white-space: nowrap;
+    }
+
+    .cv-detail {
+      color: var(--gray-dk);
+      line-height: 1.55;
+    }
+
+    .cv-detail .inst {
+      color: var(--gray);
+      font-size: 0.875rem;
+    }
+
+    /* Simple list (no year column) */
+    .cv-simple {
+      list-style: none;
+    }
+
+    .cv-simple li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--gray-dk);
+    }
+
+    .cv-simple li:last-child {
+      border-bottom: none;
+    }
+
+    .cv-simple .journal {
+      font-style: italic;
+    }
+
+    /* Publications in CV — compact */
+    .pub-cv {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--gray-dk);
+    }
+
+    .pub-cv:last-child { border-bottom: none; }
+
+    .pub-cv a { color: var(--gray-dk); }
+    .pub-cv a:hover { color: var(--blue); }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .cv-item { grid-template-columns: 1fr; gap: 0.1rem; }
+      .cv-year { font-size: 0.8rem; }
+    }
+
+    /* ── Print / PDF ──────────────────────────────────────────────── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 20mm 18mm 20mm;
+      }
+
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      header, footer { display: none; }
+
+      body {
+        font-size: 10pt;
+        color: #000;
+        background: #fff;
+        line-height: 1.5;
+      }
+
+      a { color: #000; text-decoration: none; }
+
+      main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Name / contact header */
+      .print-header {
+        display: block !important;
+        margin-bottom: 16pt;
+        border-bottom: 1.5pt solid #000;
+        padding-bottom: 8pt;
+      }
+
+      .print-header h1 {
+        font-size: 16pt;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 3pt;
+      }
+
+      .print-header p {
+        font-size: 9pt;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Hide web-only page header */
+      .page-header { display: none; }
+
+      /* Sections */
+      .cv-section {
+        margin-bottom: 12pt;
+        break-inside: avoid;
+      }
+
+      .cv-section-title {
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #000;
+        border-bottom: 1pt solid #000;
+        padding-bottom: 2pt;
+        margin-bottom: 5pt;
+      }
+
+      .cv-list { list-style: none; }
+
+      .cv-item {
+        display: grid;
+        grid-template-columns: 90pt 1fr;
+        gap: 0 10pt;
+        padding: 2.5pt 0;
+        border-bottom: 0.5pt solid #ccc;
+        font-size: 9.5pt;
+        break-inside: avoid;
+      }
+
+      .cv-item:last-child { border-bottom: none; }
+
+      .cv-year {
+        font-size: 9pt;
+        color: #444;
+        white-space: nowrap;
+        padding-top: 0;
+      }
+
+      .cv-detail { color: #000; line-height: 1.45; }
+      .cv-detail .inst { color: #333; font-size: 9pt; }
+
+      .cv-simple { list-style: none; }
+
+      .pub-cv {
+        padding: 2.5pt 0;
+        border-bottom: 0.5pt solid #ccc;
+        font-size: 9pt;
+        line-height: 1.5;
+        color: #000;
+        break-inside: avoid;
+      }
+
+      .pub-cv:last-child { border-bottom: none; }
+
+      .pub-cv .journal { font-style: italic; }
+
+      /* Journal referee — keep compact */
+      .cv-section p {
+        font-size: 9pt;
+        line-height: 1.65;
+        color: #000;
+      }
+
+      /* Areas of interest */
+      .cv-simple li {
+        font-size: 9.5pt;
+        padding: 2pt 0;
+        border-bottom: none;
+      }
+
+      /* Page breaks */
+      .cv-section.break-before { break-before: page; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">Shintaro Yamaguchi</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="cv.html" class="active">CV</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="ja/index.html">日本語</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 印刷時のみ表示するヘッダー -->
+  <div class="print-header" style="display:none;">
+    <h1>Shintaro Yamaguchi</h1>
+    <p>
+      Professor, Faculty of Economics, University of Tokyo<br>
+      7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan<br>
+      syamaguchi@e.u-tokyo.ac.jp &nbsp;·&nbsp; https://shintaroyamaguchi.github.io
+    </p>
+  </div>
+
+  <div class="page-header">
+    <h1 class="page-title">Curriculum Vitae</h1>
+    <a class="pdf-link" href="cv.pdf" target="_blank">Download PDF</a>
+  </div>
+
+  <!-- Employment -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Employment</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2019–Present</span>
+        <span class="cv-detail">
+          Professor, Faculty of Economics<br>
+          <span class="inst">University of Tokyo</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2017–2019</span>
+        <span class="cv-detail">
+          Associate Professor, Faculty of Economics<br>
+          <span class="inst">University of Tokyo</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2012–2017</span>
+        <span class="cv-detail">
+          Associate Professor, Department of Economics<br>
+          <span class="inst">McMaster University</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2006–2012</span>
+        <span class="cv-detail">
+          Assistant Professor, Department of Economics<br>
+          <span class="inst">McMaster University</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Other Affiliations -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Other Affiliations</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2021–Present</span>
+        <span class="cv-detail">
+          Research Fellow<br>
+          <span class="inst">IZA@LISER, Institute of Labor Economics</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2019–Present</span>
+        <span class="cv-detail">
+          External Research Fellow<br>
+          <span class="inst">CReAM, Centre for Research and Analysis of Migration, University College London</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Education -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Education</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2006</span>
+        <span class="cv-detail">
+          Ph.D., Economics<br>
+          <span class="inst">University of Wisconsin-Madison</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2003</span>
+        <span class="cv-detail">
+          M.S., Economics<br>
+          <span class="inst">University of Wisconsin-Madison</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2001</span>
+        <span class="cv-detail">
+          M.A., Business and Commerce<br>
+          <span class="inst">Keio University</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">1999</span>
+        <span class="cv-detail">
+          B.A., Business and Commerce<br>
+          <span class="inst">Keio University</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Editorial Appointment -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Editorial Appointment</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2019–2022</span>
+        <span class="cv-detail">Co-Editor, <em>Japanese Economic Review</em></span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2015–2019</span>
+        <span class="cv-detail">Associate Editor, <em>Japanese Economic Review</em></span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2012–2018</span>
+        <span class="cv-detail">Associate Editor, <em>Economic Inquiry</em></span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Areas of Interest -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Areas of Interest</h2>
+    <ul class="cv-simple">
+      <li>Labour Economics, Economics of the Family, Economics of Education</li>
+    </ul>
+  </section>
+
+  <!-- Publications -->
+  <section class="cv-section break-before">
+    <h2 class="cv-section-title">Publications</h2>
+    <ul class="cv-simple">
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.jpubeco.2025.105353">"Universal Early Childhood Education and Adolescent Risky Behavior,"</a>
+        with Michihito Ando and Hiroaki Mori,
+        <span class="journal">Journal of Public Economics</span>, Vol. 245, Article 105353, April 2025.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1007/s11150-023-09682-6">"Working From Home Leads to More Family-Oriented Men,"</a>
+        with Chihiro Inoue and Yusuke Ishihata,
+        <span class="journal">Review of Economics of the Household</span>, Vol. 22, No. 2, pp. 783–829, June 2024.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.labeco.2023.102392">"Month-of-Birth Effects on Skills and Skill Formation,"</a>
+        with Hirotake Ito and Makiko Nakamuro,
+        <span class="journal">Labour Economics</span>, Vol. 84, Article 102392, October 2023.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.jjie.2023.101256">"COVID-19 and the Employment Gender Gap in Japan,"</a>
+        with Taiyo Fukai, Masato Ikeda, and Daiji Kawaguchi,
+        <span class="journal">Journal of the Japanese and International Economies</span>, Vol. 68, Article 101256, June 2023.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1007/s42973-021-00079-7">"Online Learning During School Closure Due to COVID-19,"</a>
+        with Masato Ikeda,
+        <span class="journal">Japanese Economic Review</span>, Vol. 72, No. 3, pp. 471–507, July 2021.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.japwor.2019.100977">"Effects of Class-Size Reduction on Cognitive and Non-cognitive Skills,"</a>
+        with Hirotake Ito and Makiko Nakamuro,
+        <span class="journal">Japan and the World Economy</span>, Vol. 53, Article 100977, March 2020.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.3982/QE965">"Effects of Parental Leave Policies on Female Career and Fertility Choices,"</a>
+        <span class="journal">Quantitative Economics</span>, Vol. 10, Issue 3, pp. 1195–1232, July 2019.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.labeco.2018.08.006">"How Does Early Childcare Enrollment Affect Children, Parents, and Their Interactions?,"</a>
+        with Yukiko Asai and Ryo Kambayashi,
+        <span class="journal">Labour Economics</span>, Vol. 55, pp. 56–71, December 2018.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.labeco.2018.07.009">"Effects of Subsidized Childcare on Mothers' Labor Supply Under a Rationing Mechanism,"</a>
+        with Yukiko Asai and Ryo Kambayashi,
+        <span class="journal">Labour Economics</span>, Vol. 55, pp. 1–17 (lead article), December 2018.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.3368/jhr.53.1.1214-6813R2">"Changes in Returns to Task-Specific Skills and Gender Wage Gap,"</a>
+        <span class="journal">Journal of Human Resources</span>, Vol. 53, No. 1, pp. 32–70, January 2018.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1111/jere.12136">"Family Policies and Female Employment in Japan,"</a>
+        <span class="journal">Japanese Economic Review</span>, Vol. 68, No. 3, pp. 305–322, September 2017.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.jjie.2015.05.009">"Childcare Availability, Household Structure, and Maternal Employment,"</a>
+        with Yukiko Asai and Ryo Kambayashi,
+        <span class="journal">Journal of the Japanese and International Economies</span>, Vol. 38, pp. 172–192, December 2015.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.jebo.2015.03.011">"Compensating Wage Differentials in Stable Job Matching Equilibrium,"</a>
+        with Seungjin Han,
+        <span class="journal">Journal of Economic Behavior and Organization</span>, Vol. 114, pp. 36–45, June 2015.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1257/aer.104.5.354">"Labor Supply and Household Dynamics,"</a>
+        with Maurizio Mazzocco and Claudia Ruiz,
+        <span class="journal">American Economic Review: Papers &amp; Proceedings</span>, Vol. 104, No. 5, pp. 354–359, May 2014.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1086/662066">"Tasks and Heterogeneous Human Capital,"</a>
+        <span class="journal">Journal of Labor Economics</span>, Vol. 30, No. 1, pp. 1–53 (lead article), January 2012.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1002/hec.1616">"Cumulative Effects of Job Characteristics on Health,"</a>
+        with Jason Fletcher and Jody Sindelar,
+        <span class="journal">Health Economics</span>, Vol. 20, No. 5, pp. 553–570, May 2011.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.labeco.2010.01.006">"Career Progression and Comparative Advantage,"</a>
+        <span class="journal">Labour Economics</span>, Vol. 17, No. 4, pp. 679–689, August 2010.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1086/651954">"Job Search, Bargaining, and Wage Dynamics,"</a>
+        <span class="journal">Journal of Labor Economics</span>, Vol. 28, No. 3, pp. 595–631, July 2010.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.1016/j.labeco.2009.07.002">"The Effect of Match Quality and Specific Experience on Career Decisions and Wage Growth,"</a>
+        <span class="journal">Labour Economics</span>, Vol. 17, No. 2, pp. 407–423, April 2010.
+      </li>
+
+      <li class="pub-cv">
+        <a href="https://doi.org/10.2753/EEE0012-8775460204">"Wage Flexibility in Turbulent Times,"</a>
+        <span class="journal">Eastern European Economics</span>, Vol. 46, No. 2, pp. 88–114, March–April 2008.
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Working Papers -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Working Papers</h2>
+    <ul class="cv-simple">
+
+      <li class="pub-cv">
+        <a href="https://ssrn.com/abstract=5134001">"Unpacking the Child Penalty Using Personnel Data: How Promotion Practices Widen the Gender Pay Gap,"</a>
+        with Yoko Okuyama and Takeshi Murooka, February 2025.
+      </li>
+
+      <li class="pub-cv">
+        "Monopsony in a Two-Sided Matching Market,"
+        with Daisuke Adachi and Suk Joon Son, April 2025.
+      </li>
+
+      <li class="pub-cv">
+        "Workplace Culture and Paternal Involvement in Childcare,"
+        with Mari Tanaka, Hiroko Okudaira, and Mariko Sakka, November 2025.
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Research Funding -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Research Funding <span style="font-size:0.8rem;font-weight:400;letter-spacing:0;text-transform:none;">(PI only)</span></h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2023–2028</span>
+        <span class="cv-detail">
+          Grant-in-Aid for Scientific Research (A), Japan Society for the Promotion of Science<br>
+          <span class="inst">No. 23H00045 &nbsp;·&nbsp; 46,410,000 JPY</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2020–2023</span>
+        <span class="cv-detail">
+          Grant-in-Aid for Scientific Research (B), Japan Society for the Promotion of Science<br>
+          <span class="inst">No. 20H01510 &nbsp;·&nbsp; 17,550,000 JPY</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2017–2019</span>
+        <span class="cv-detail">
+          Fund for the Promotion of Joint International Research (Fostering Joint International Research), Japan Society for the Promotion of Science<br>
+          <span class="inst">No. 16K21743 &nbsp;·&nbsp; 33,150,000 JPY</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2018</span>
+        <span class="cv-detail">Kagami Memorial Foundation, 800,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2016</span>
+        <span class="cv-detail">The Murata Science Foundation, 1,900,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2015</span>
+        <span class="cv-detail">Zengin Foundation for Studies on Economics and Finance, 1,250,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2014</span>
+        <span class="cv-detail">Institute of Economic Research, Hitotsubashi University, 950,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2014</span>
+        <span class="cv-detail">Japan Center for Economic Research, 800,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2013</span>
+        <span class="cv-detail">Tokyo Center for Economic Research, 250,000 JPY</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2011–2013</span>
+        <span class="cv-detail">SSHRC Standard Research Grant, CAD $21,543</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Journal Referee -->
+  <section class="cv-section break-before">
+    <h2 class="cv-section-title">Journal Referee</h2>
+    <p style="font-size:0.92rem; color:var(--gray-dk); line-height:1.75;">
+      American Economic Review,
+      Econometrica,
+      Journal of Political Economy,
+      Quarterly Journal of Economics,
+      Review of Economic Studies,
+      American Economic Journal: Applied Economics,
+      American Economic Journal: Economic Policy,
+      American Economic Journal: Macroeconomics,
+      Quantitative Economics,
+      Journal of European Economic Association,
+      Review of Economics and Statistics,
+      International Economic Review,
+      European Economic Review,
+      Canadian Journal of Economics,
+      Economica,
+      Economic Inquiry,
+      Contemporary Economic Policy,
+      Southern Economic Journal,
+      Economics Bulletin,
+      Journal of Labor Economics,
+      Journal of Econometrics,
+      Journal of Human Resources,
+      Review of Economic Dynamics,
+      Labour Economics,
+      Health Economics,
+      Economics of Education Review,
+      Journal of Human Capital,
+      Journal of Population Economics,
+      Industrial and Labor Relations Review,
+      Journal of Economic Behavior and Organization,
+      Review of Economics of the Household,
+      Journal of Public Economic Theory,
+      Industrial Relations,
+      IZA Journal of Labor Economics,
+      LABOUR,
+      Urban Studies,
+      Journal of the Japanese and International Economies,
+      Japanese Economic Review,
+      Japanese Journal of Labor Studies
+    </p>
+  </section>
+
+  <!-- Honours -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">Honours</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2022</span>
+        <span class="cv-detail">Ishikawa Prize, Japan Economic Association</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2021</span>
+        <span class="cv-detail">Nikkei Economic Book Prize (64th), Nikkei and Japan Center for Economic Research</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2019</span>
+        <span class="cv-detail">Suntory Prize for Social Sciences and Humanities (41st), Suntory Foundation</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2006</span>
+        <span class="cv-detail">The 8th ISER-Moriguchi Prize, Osaka University</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2005</span>
+        <span class="cv-detail">Christensen Award in Empirical Economics, University of Wisconsin-Madison</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2003–2005</span>
+        <span class="cv-detail">Japan-IMF Scholarship, International Monetary Fund</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2003</span>
+        <span class="cv-detail">The Best Second Year Paper Award, University of Wisconsin-Madison</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">1999</span>
+        <span class="cv-detail">Mita Business Review Senior Thesis Award, Keio University</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Shintaro Yamaguchi &nbsp;&middot;&nbsp; University of Tokyo &nbsp;&middot;&nbsp;
+  Last updated March 2026</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,748 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>略歴 | 山口慎太郎</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.75;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* Page title row */
+    .page-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .pdf-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      padding: 4px 14px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .pdf-link:hover {
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Sections */
+    .cv-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* CV entries with year column */
+    .cv-list {
+      list-style: none;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.5rem 1.25rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .cv-item:last-child {
+      border-bottom: none;
+    }
+
+    .cv-year {
+      color: var(--gray-lt);
+      font-size: 0.85rem;
+      padding-top: 0.05rem;
+      white-space: nowrap;
+    }
+
+    .cv-detail {
+      color: var(--gray-dk);
+      line-height: 1.6;
+    }
+
+    .cv-detail .inst {
+      color: var(--gray);
+      font-size: 0.875rem;
+    }
+
+    /* Books: sub-label */
+    .books-sublabel {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-lt);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 1rem 0 0.4rem;
+    }
+
+    /* Books: "その他" indented */
+    .books-other {
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--border);
+    }
+
+    /* Simple list (no year column) */
+    .cv-simple {
+      list-style: none;
+    }
+
+    .cv-simple li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--gray-dk);
+    }
+
+    .cv-simple li:last-child {
+      border-bottom: none;
+    }
+
+    /* Researchmap link */
+    .researchmap-link {
+      font-size: 0.92rem;
+      color: var(--gray-dk);
+      line-height: 1.75;
+    }
+
+    /* Table for government roles */
+    .cv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .cv-table th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--navy);
+      padding: 0.35rem 0.75rem 0.35rem 0;
+    }
+
+    .cv-table td {
+      padding: 0.5rem 0.75rem 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .cv-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cv-table .col-period {
+      white-space: nowrap;
+      color: var(--gray-lt);
+      font-size: 0.82rem;
+      width: 110px;
+    }
+
+    .cv-table .col-role {
+      white-space: nowrap;
+      width: 80px;
+    }
+
+    /* Bottom PDF row */
+    .pdf-bottom {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .cv-item { grid-template-columns: 1fr; gap: 0.1rem; }
+      .cv-year { font-size: 0.8rem; }
+      .cv-table .col-period { width: auto; }
+      .cv-table .col-role { width: auto; }
+      .books-other { padding-left: 0.75rem; }
+    }
+
+    /* ── Print / PDF ──────────────────────────────────────────────── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 20mm 18mm 20mm;
+      }
+
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      header, footer, .pdf-bottom { display: none; }
+
+      body {
+        font-size: 10pt;
+        color: #000;
+        background: #fff;
+        line-height: 1.5;
+      }
+
+      a { color: #000; text-decoration: none; }
+
+      main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Name / contact header */
+      .print-header {
+        display: block !important;
+        margin-bottom: 16pt;
+        border-bottom: 1.5pt solid #000;
+        padding-bottom: 8pt;
+      }
+
+      .print-header h1 {
+        font-size: 16pt;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 3pt;
+      }
+
+      .print-header p {
+        font-size: 9pt;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Hide web-only page header */
+      .page-header { display: none; }
+
+      /* Sections */
+      .cv-section {
+        margin-bottom: 12pt;
+        break-inside: avoid;
+      }
+
+      .cv-section-title {
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: #000;
+        border-bottom: 1pt solid #000;
+        padding-bottom: 2pt;
+        margin-bottom: 5pt;
+      }
+
+      .cv-list { list-style: none; }
+
+      .cv-item {
+        display: grid;
+        grid-template-columns: 80pt 1fr;
+        gap: 0 10pt;
+        padding: 2.5pt 0;
+        border-bottom: 0.5pt solid #ccc;
+        font-size: 9.5pt;
+        break-inside: avoid;
+      }
+
+      .cv-item:last-child { border-bottom: none; }
+
+      .cv-year {
+        font-size: 9pt;
+        color: #444;
+        white-space: nowrap;
+        padding-top: 0;
+      }
+
+      .cv-detail { color: #000; line-height: 1.45; }
+      .cv-detail .inst { color: #333; font-size: 9pt; }
+
+      .books-sublabel {
+        font-size: 8pt;
+        color: #555;
+        margin: 6pt 0 3pt;
+      }
+
+      .books-other {
+        padding-left: 10pt;
+        border-left: 1pt solid #ccc;
+      }
+
+      .researchmap-link {
+        font-size: 9pt;
+        color: #000;
+      }
+
+      .cv-table {
+        font-size: 8.5pt;
+      }
+
+      .cv-table th {
+        font-size: 8pt;
+        padding: 2pt 6pt 2pt 0;
+        border-bottom: 0.5pt solid #000;
+      }
+
+      .cv-table td {
+        padding: 2.5pt 6pt 2.5pt 0;
+        border-bottom: 0.5pt solid #ccc;
+        font-size: 8.5pt;
+        line-height: 1.45;
+      }
+
+      .cv-table tr:last-child td { border-bottom: none; }
+
+      .cv-table .col-period {
+        font-size: 8pt;
+        color: #444;
+        width: 60pt;
+      }
+
+      .cv-table .col-role {
+        width: 45pt;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">山口慎太郎</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="books.html">著書</a></li>
+        <li><a href="activities.html">メディア・講演</a></li>
+        <li><a href="collaboration.html">共同研究・アドバイザリー</a></li>
+        <li><a href="cv.html" class="active">略歴</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="../cv.html">English</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 印刷時のみ表示するヘッダー -->
+  <div class="print-header" style="display:none;">
+    <h1>山口 慎太郎</h1>
+    <p>
+      東京大学大学院経済学研究科 教授<br>
+      〒113-0033 東京都文京区本郷7-3-1<br>
+      syamaguchi@e.u-tokyo.ac.jp &nbsp;·&nbsp;
+      https://shintaroyamaguchi.github.io
+    </p>
+  </div>
+
+  <div class="page-header">
+    <h1 class="page-title">略歴</h1>
+    <a class="pdf-link" href="cv-ja.pdf" target="_blank">PDF をダウンロード</a>
+  </div>
+
+  <!-- 基本情報 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">基本情報</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">氏名</span>
+        <span class="cv-detail">山口 慎太郎（やまぐち しんたろう）</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">現職</span>
+        <span class="cv-detail">
+          東京大学大学院経済学研究科 教授<br>
+          <span class="inst">〒113-0033 東京都文京区本郷7-3-1</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">メール</span>
+        <span class="cv-detail">
+          <a href="mailto:syamaguchi@e.u-tokyo.ac.jp">syamaguchi@e.u-tokyo.ac.jp</a>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">ウェブサイト</span>
+        <span class="cv-detail">
+          <a href="https://shintaroyamaguchi.github.io">https://shintaroyamaguchi.github.io</a>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">researchmap</span>
+        <span class="cv-detail">
+          <a href="https://researchmap.jp/shintaroyamaguchi" target="_blank" rel="noopener">https://researchmap.jp/shintaroyamaguchi</a>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">研究分野</span>
+        <span class="cv-detail">労働経済学、家族の経済学、教育の経済学</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 学歴 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">学歴</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2006年</span>
+        <span class="cv-detail">
+          Ph.D.（経済学）<br>
+          <span class="inst">ウィスコンシン大学マディソン校（アメリカ）</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2003年</span>
+        <span class="cv-detail">
+          M.S.（経済学）<br>
+          <span class="inst">ウィスコンシン大学マディソン校（アメリカ）</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2001年</span>
+        <span class="cv-detail">
+          修士（商学）<br>
+          <span class="inst">慶應義塾大学大学院商学研究科</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">1999年</span>
+        <span class="cv-detail">
+          学士（商学）<br>
+          <span class="inst">慶應義塾大学商学部</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 職歴 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">職歴</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2019年〜現在</span>
+        <span class="cv-detail">
+          教授<br>
+          <span class="inst">東京大学大学院経済学研究科</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2017〜2019年</span>
+        <span class="cv-detail">
+          准教授<br>
+          <span class="inst">東京大学大学院経済学研究科</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2012〜2017年</span>
+        <span class="cv-detail">
+          准教授<br>
+          <span class="inst">マクマスター大学経済学部（カナダ）</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2006〜2012年</span>
+        <span class="cv-detail">
+          助教授<br>
+          <span class="inst">マクマスター大学経済学部（カナダ）</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 著書 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">著書</h2>
+
+    <p class="books-sublabel">単著</p>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2025年10月</span>
+        <span class="cv-detail">『フェイクを見破れ』、JTBパブリッシング</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2021年1月</span>
+        <span class="cv-detail">『子育て支援の経済学』、日本評論社</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2019年7月</span>
+        <span class="cv-detail">『「家族の幸せ」の経済学』、光文社新書</span>
+      </li>
+    </ul>
+
+    <p class="books-sublabel" style="margin-top:1.25rem;">その他</p>
+    <ul class="cv-list books-other">
+      <li class="cv-item">
+        <span class="cv-year">2020年4月</span>
+        <span class="cv-detail">
+          『経済学を味わう』（第4章「データ分析で社会を変える」）、日本評論社<br>
+          <span class="inst">分担執筆</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2025年1月</span>
+        <span class="cv-detail">
+          『保育から世界が変わる — 大豆生田啓友対談集』、北大路書房<br>
+          <span class="inst">インタビュー収録</span>
+        </span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2025年9月</span>
+        <span class="cv-detail">
+          『多様な視点からジェンダーを見る：東大オムニバス講義13講』、東京大学出版会<br>
+          <span class="inst">分担執筆</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 学術論文 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">学術論文</h2>
+    <p class="researchmap-link">
+      論文の完全なリストは researchmap をご覧ください：<br>
+      <a href="https://researchmap.jp/shintaroyamaguchi" target="_blank" rel="noopener">https://researchmap.jp/shintaroyamaguchi</a>
+    </p>
+  </section>
+
+  <!-- 受賞 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">受賞</h2>
+    <ul class="cv-list">
+      <li class="cv-item">
+        <span class="cv-year">2022年</span>
+        <span class="cv-detail">石川賞（日本経済学会）</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2021年</span>
+        <span class="cv-detail">第64回 日経・経済図書文化賞（日本経済新聞社・日本経済研究センター）</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2019年</span>
+        <span class="cv-detail">第41回 サントリー学芸賞（サントリー文化財団）</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2006年</span>
+        <span class="cv-detail">第8回 ISER-森口賞（大阪大学社会経済研究所）</span>
+      </li>
+      <li class="cv-item">
+        <span class="cv-year">2005年</span>
+        <span class="cv-detail">Christensen Award in Empirical Economics（ウィスコンシン大学マディソン校）</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 政府委員・審議会等 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">政府委員・審議会等</h2>
+    <table class="cv-table">
+      <thead>
+        <tr>
+          <th>機関</th>
+          <th>会議名</th>
+          <th class="col-role">役職</th>
+          <th class="col-period">時期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>内閣府</td>
+          <td>男女共同参画会議</td>
+          <td class="col-role">民間議員</td>
+          <td class="col-period">2021年〜</td>
+        </tr>
+        <tr>
+          <td>内閣府</td>
+          <td>計画実行・監視専門調査会</td>
+          <td class="col-role">委員</td>
+          <td class="col-period">2021年〜</td>
+        </tr>
+        <tr>
+          <td>こども家庭庁</td>
+          <td>「こどもとともに成長する企業構想」に関する有識者会議</td>
+          <td class="col-role">委員</td>
+          <td class="col-period">2026年〜</td>
+        </tr>
+        <tr>
+          <td>金融庁</td>
+          <td>インパクトコンソーシアム データ・指標分科会</td>
+          <td class="col-role">共同座長</td>
+          <td class="col-period">2024年〜</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 民間財団等での役職 -->
+  <section class="cv-section">
+    <h2 class="cv-section-title">民間財団等での役職</h2>
+    <table class="cv-table">
+      <thead>
+        <tr>
+          <th>団体</th>
+          <th>役職</th>
+          <th class="col-period">時期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>公益財団法人トヨタ財団</td>
+          <td>特定課題「人口減少と日本社会」選考委員長</td>
+          <td class="col-period">2024年〜</td>
+        </tr>
+        <tr>
+          <td>公益財団法人21世紀職業財団</td>
+          <td>評議員</td>
+          <td class="col-period">2026年〜</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="pdf-bottom">
+    <a class="pdf-link" href="cv-ja.pdf" target="_blank">PDF をダウンロード</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>山口慎太郎 &nbsp;&middot;&nbsp; 東京大学大学院経済学研究科 &nbsp;&middot;&nbsp;
+  最終更新：2026年3月</p>
+</footer>
+
+</body>
+</html>

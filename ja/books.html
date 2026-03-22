@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>著書 | 山口慎太郎</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.75;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Book Item ─────────────────────────────────────────────────── */
+    .book-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .book-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.25rem 1.75rem;
+      align-items: start;
+    }
+
+    .book-cover {
+      width: 120px;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .book-cover-placeholder {
+      width: 120px;
+      height: 170px;
+      background: var(--bg-lt);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--gray-lt);
+      text-align: center;
+    }
+
+    .book-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 0.35rem;
+    }
+
+    .book-title a {
+      color: var(--navy);
+    }
+
+    .book-title a:hover {
+      color: var(--blue);
+    }
+
+    .book-meta {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .book-award {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #8a6a00;
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .book-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-top: 0.65rem;
+    }
+
+    .book-links {
+      margin-top: 0.6rem;
+      font-size: 0.875rem;
+    }
+
+    .book-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ── Other Books (indented) ────────────────────────────────────── */
+    .other-list {
+      list-style: none;
+    }
+
+    .other-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .other-item:last-child {
+      border-bottom: none;
+    }
+
+    .other-title {
+      color: var(--gray-dk);
+    }
+
+    .other-meta {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.15rem;
+    }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+
+      .book-item {
+        grid-template-columns: 90px 1fr;
+        gap: 0.75rem 1.25rem;
+      }
+
+      .book-cover,
+      .book-cover-placeholder {
+        width: 90px;
+        height: auto;
+      }
+
+      .book-cover-placeholder { height: 128px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">山口慎太郎</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="books.html" class="active">著書</a></li>
+        <li><a href="activities.html">メディア・講演</a></li>
+        <li><a href="collaboration.html">共同研究・アドバイザリー</a></li>
+        <li><a href="cv.html">略歴</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="../index.html">English</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <h1 class="page-title">著書</h1>
+
+  <!-- 単著 -->
+  <section class="section">
+    <h2 class="section-title">単著</h2>
+    <ul class="book-list">
+
+      <li class="book-item">
+        <a href="https://amzn.to/3NTKW99" target="_blank" rel="noopener"><img class="book-cover" src="fake.jpg" alt="『フェイクを見破れ』表紙"></a>
+        <div class="book-info">
+          <p class="book-title"><a href="https://amzn.to/3NTKW99" target="_blank" rel="noopener">『フェイクを見破れ』</a></p>
+          <p class="book-meta">JTBパブリッシング、2025年10月</p>
+          <p class="book-desc">グラフのトリック、思い込み、合わないつじつまなど、世の中にあふれる「フェイク（うそ）」をクイズ形式で解き明かす一冊。数字やデータのフェイクを見抜く力を養い、論理的思考を高める。中学受験からその先の人生まで役立つ内容。</p>
+          <p class="book-links"><a href="https://amzn.to/3NTKW99" target="_blank" rel="noopener">Amazonで見る →</a></p>
+        </div>
+      </li>
+
+      <li class="book-item">
+        <a href="https://amzn.to/3NwYtDw" target="_blank" rel="noopener"><img class="book-cover" src="kosodateshien.jpg" alt="『子育て支援の経済学』表紙"></a>
+        <div class="book-info">
+          <p class="book-title"><a href="https://amzn.to/3NwYtDw" target="_blank" rel="noopener">『子育て支援の経済学』</a></p>
+          <p class="book-meta">日本評論社、2021年1月</p>
+          <span class="book-award">第64回 日経・経済図書文化賞（2021年）</span>
+          <p class="book-desc">少子化対策の要である現金給付・保育所拡充・育児休業など各政策の効果を、厳密なエビデンスに基づいて評価・解説。どのような政策がどれほど有効かを明快に論じた一冊。</p>
+          <p class="book-links"><a href="https://amzn.to/3NwYtDw" target="_blank" rel="noopener">Amazonで見る →</a></p>
+        </div>
+      </li>
+
+      <li class="book-item">
+        <a href="https://amzn.to/47h29Qn" target="_blank" rel="noopener"><img class="book-cover" src="kazokuno-shiawase.jpg" alt="『「家族の幸せ」の経済学』表紙"></a>
+        <div class="book-info">
+          <p class="book-title"><a href="https://amzn.to/47h29Qn" target="_blank" rel="noopener">『「家族の幸せ」の経済学』</a></p>
+          <p class="book-meta">光文社新書、2019年7月</p>
+          <span class="book-award">第41回 サントリー学芸賞（2019年）</span>
+          <p class="book-desc">結婚・母乳・保育園・育休など、家族形成にまつわる大きな意思決定にエビデンスでどこまで答えられるかを最新研究に基づいて解説。著者自身が一人の親として書いた点も大きな魅力。</p>
+          <p class="book-links"><a href="https://amzn.to/47h29Qn" target="_blank" rel="noopener">Amazonで見る →</a></p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- その他 -->
+  <section class="section">
+    <h2 class="section-title">その他</h2>
+    <ul class="other-list">
+
+      <li class="other-item">
+        <p class="other-title"><a href="https://amzn.to/4bK6hd9" target="_blank" rel="noopener">『多様な視点からジェンダーを見る：東大オムニバス講義13講』</a></p>
+        <p class="other-meta">東京大学出版会、2025年9月（第3講「労働市場のジェンダー・ギャップ」を担当・分担執筆）</p>
+      </li>
+
+      <li class="other-item">
+        <p class="other-title"><a href="https://amzn.to/4sVhWN6" target="_blank" rel="noopener">『経済学を味わう』</a>（第4章「データ分析で社会を変える」）</p>
+        <p class="other-meta">日本評論社、2020年4月（分担執筆）</p>
+      </li>
+
+      <li class="other-item">
+        <p class="other-title"><a href="https://amzn.to/4bDO9lb" target="_blank" rel="noopener">『保育から世界が変わる — 大豆生田啓友対談集』</a></p>
+        <p class="other-meta">北大路書房、2025年1月（インタビュー収録）</p>
+      </li>
+
+      <li class="other-item">
+        <p class="other-title"><a href="https://amzn.to/4bXzaUi" target="_blank" rel="noopener">『人生は生い立ちが8割』</a></p>
+        <p class="other-meta">インタビュー収録</p>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>山口慎太郎 &nbsp;&middot;&nbsp; 東京大学大学院経済学研究科 &nbsp;&middot;&nbsp;
+  最終更新：2026年3月</p>
+</footer>
+
+</body>
+</html>

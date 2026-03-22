@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メディア・講演 | 山口慎太郎</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1a2e4a;
+      --blue:    #2563a8;
+      --blue-lt: #3b7dd8;
+      --gray-dk: #2d2d2d;
+      --gray:    #555;
+      --gray-lt: #888;
+      --border:  #dde1e7;
+      --bg:      #ffffff;
+      --bg-lt:   #f7f8fa;
+      --max-w:   900px;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dk);
+      background: var(--bg);
+      line-height: 1.75;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-lt); text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+
+    .nav-lang a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 2px 8px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .nav-lang a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    h1.page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Section ───────────────────────────────────────────────────── */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Theme List ────────────────────────────────────────────────── */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .theme-item {
+      font-size: 0.95rem;
+      color: var(--gray-dk);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .theme-item::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 0.75rem;
+      top: 0.2em;
+    }
+
+    /* ── Venue List ────────────────────────────────────────────────── */
+    .venue-section {
+      margin-top: 1.75rem;
+    }
+
+    .venue-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-lt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .venue-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .venue-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      align-items: baseline;
+    }
+
+    .venue-item:last-child {
+      border-bottom: none;
+    }
+
+    .venue-cat {
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+      white-space: nowrap;
+    }
+
+    .venue-name {
+      color: var(--gray-dk);
+      line-height: 1.6;
+    }
+
+    /* ── Featured Media ───────────────────────────────────────────── */
+    .featured-media {
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: #f0f5ff;
+      border: 1px solid #c5d8f5;
+      border-left: 4px solid var(--blue);
+      border-radius: 4px;
+    }
+
+    .featured-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .featured-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .featured-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .featured-org {
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+
+    /* ── Media Tags ────────────────────────────────────────────────── */
+    .media-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .media-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-lt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      color: var(--gray-dk);
+      background: var(--bg-lt);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* ── Video List ────────────────────────────────────────────────── */
+    .video-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .video-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--bg-lt);
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .video-item:hover {
+      border-color: var(--blue-lt);
+      background: #f0f5ff;
+    }
+
+    .video-icon {
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .video-body { flex: 1; }
+
+    .video-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .video-title a { color: var(--navy); }
+    .video-title a:hover { color: var(--blue); text-decoration: none; }
+
+    .video-source {
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+      margin-top: 0.15rem;
+    }
+
+    /* ── Contact CTA ───────────────────────────────────────────────── */
+    .contact-cta {
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-dk);
+    }
+
+    footer {
+      background: var(--bg-lt);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-lt);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 0.9rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .theme-grid { grid-template-columns: 1fr; }
+      .venue-item { grid-template-columns: 1fr; gap: 0.1rem; }
+      .venue-cat { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-name">山口慎太郎</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="books.html">著書</a></li>
+        <li><a href="activities.html" class="active">メディア・講演</a></li>
+        <li><a href="collaboration.html">共同研究・アドバイザリー</a></li>
+        <li><a href="cv.html">略歴</a></li>
+      </ul>
+      <div class="nav-lang">
+        <a href="../index.html">English</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <h1 class="page-title">メディア・講演</h1>
+
+  <!-- お問い合わせ（ページ上部） -->
+  <div class="contact-cta">
+    取材・講演のご依頼はお気軽にご連絡ください。<br>
+    <a href="mailto:syamaguchi@e.u-tokyo.ac.jp">syamaguchi@e.u-tokyo.ac.jp</a>
+  </div>
+
+  <!-- 講演・登壇 -->
+  <section class="section">
+    <h2 class="section-title">講演などの主なテーマ</h2>
+
+    <div class="theme-grid">
+      <p class="theme-item">少子化・人口動態の現状と政策</p>
+      <p class="theme-item">育児休業制度の効果と課題（男性育休を含む）</p>
+      <p class="theme-item">保育政策と女性就業・キャリア</p>
+      <p class="theme-item">男女間賃金格差の要因と是正</p>
+      <p class="theme-item">女性管理職登用と女性活躍推進</p>
+      <p class="theme-item">子どもの発達と幼児教育・保育の経済効果</p>
+    </div>
+
+    <div class="venue-section">
+      <p class="venue-subtitle">主な登壇先</p>
+      <ul class="venue-list">
+        <li class="venue-item">
+          <span class="venue-cat">国際機関</span>
+          <span class="venue-name">国連グローバルコンパクトネットワーク ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">政府・国会</span>
+          <span class="venue-name">内閣府、内閣府税制調査会、厚生労働省、子ども家庭庁、財務省、衆議院・参議院 ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">地方自治体</span>
+          <span class="venue-name">全国知事会、都道府県・市区町村 ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">政党</span>
+          <span class="venue-name">自民党、立憲民主党、公明党、日本維新の会、国民民主党 ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">経済団体・シンクタンク</span>
+          <span class="venue-name">経団連、経済同友会、日本商工会議所、経済産業研究所（RIETI）、財務総合政策研究所 ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">労働組合</span>
+          <span class="venue-name">連合、電機連合 ほか</span>
+        </li>
+        <li class="venue-item">
+          <span class="venue-cat">民間企業</span>
+          <span class="venue-name">製造業、金融機関、保険会社、サービス業 ほか</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- メディア出演・掲載 -->
+  <section class="section">
+    <h2 class="section-title">メディア出演・掲載</h2>
+
+    <!-- 注目掲載 -->
+    <div class="featured-media">
+      <p class="featured-label">連載コラム</p>
+      <div class="featured-item">
+        <span class="featured-title">「多様性　私の視点」</span>
+        <span class="featured-org">日本経済新聞</span>
+      </div>
+    </div>
+
+    <div class="media-section">
+      <p class="media-label">テレビ・ラジオ</p>
+      <div class="tag-group">
+        <span class="tag">NHK</span>
+        <span class="tag">テレビ朝日</span>
+        <span class="tag">TBS</span>
+        <span class="tag">日本テレビ</span>
+        <span class="tag">フジテレビ</span>
+        <span class="tag">テレビ東京</span>
+        <span class="tag">AbemaTV</span>
+        <span class="tag">J-WAVE</span>
+        <span class="tag">ニッポン放送</span>
+        <span class="tag">ほか</span>
+      </div>
+    </div>
+
+    <div class="media-section">
+      <p class="media-label">新聞</p>
+      <div class="tag-group">
+        <span class="tag">日本経済新聞</span>
+        <span class="tag">朝日新聞</span>
+        <span class="tag">読売新聞</span>
+        <span class="tag">毎日新聞</span>
+        <span class="tag">産経新聞</span>
+        <span class="tag">東京新聞</span>
+        <span class="tag">共同通信</span>
+        <span class="tag">ほか</span>
+      </div>
+    </div>
+
+    <div class="media-section">
+      <p class="media-label">雑誌・オンラインメディア</p>
+      <div class="tag-group">
+        <span class="tag">文藝春秋</span>
+        <span class="tag">中央公論</span>
+        <span class="tag">世界</span>
+        <span class="tag">東洋経済</span>
+        <span class="tag">ダイヤモンド</span>
+        <span class="tag">日経ビジネス</span>
+        <span class="tag">プレジデント</span>
+        <span class="tag">AERA</span>
+        <span class="tag">GQ JAPAN</span>
+        <span class="tag">VERY</span>
+        <span class="tag">Forbes JAPAN</span>
+        <span class="tag">NewsPicks</span>
+        <span class="tag">ほか</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 動画 -->
+  <section class="section">
+    <h2 class="section-title">動画</h2>
+    <ul class="video-list">
+
+      <li class="video-item">
+        <span class="video-icon">▶</span>
+        <div class="video-body">
+          <p class="video-title">
+            <a href="https://www.youtube.com/watch?v=5QojGBQ0dho" target="_blank" rel="noopener">常識を疑え！データ使った労働経済学</a>
+          </p>
+          <p class="video-source">ReHacQ</p>
+        </div>
+      </li>
+
+      <li class="video-item">
+        <span class="video-icon">▶</span>
+        <div class="video-body">
+          <p class="video-title">
+            <a href="https://www.youtube.com/watch?v=fNqraiVSyjc" target="_blank" rel="noopener">東京大学教授が力説！日本の育休制度の実態とは</a>
+          </p>
+          <p class="video-source">ReHacQ</p>
+        </div>
+      </li>
+
+      <li class="video-item">
+        <span class="video-icon">▶</span>
+        <div class="video-body">
+          <p class="video-title">
+            <a href="https://www.youtube.com/watch?v=pTIlJjuBF-o" target="_blank" rel="noopener">男性育休の効果 子どもの偏差値が1上昇…</a>
+          </p>
+          <p class="video-source">TBS NEWS DIG</p>
+        </div>
+      </li>
+
+      <li class="video-item">
+        <span class="video-icon">▶</span>
+        <div class="video-body">
+          <p class="video-title">
+            <a href="https://www.jnpc.or.jp/archive/conferences/36427/report" target="_blank" rel="noopener">全世代型社会保障（第4回）</a>
+          </p>
+          <p class="video-source">日本記者クラブ</p>
+        </div>
+      </li>
+
+      <li class="video-item">
+        <span class="video-icon">▶</span>
+        <div class="video-body">
+          <p class="video-title">
+            <a href="https://tv.he.u-tokyo.ac.jp/lecture_5437/" target="_blank" rel="noopener">データ分析で社会を変える</a>
+          </p>
+          <p class="video-source">東京大学オープンキャンパス2020</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>山口慎太郎 &nbsp;&middot;&nbsp; 東京大学大学院経済学研究科 &nbsp;&middot;&nbsp;
+  最終更新：2026年3月</p>
+</footer>
+
+</body>
+</html>
