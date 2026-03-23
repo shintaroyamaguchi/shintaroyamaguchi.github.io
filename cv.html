@@ -17,9 +17,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
-    /* Print-only header (hidden on screen) */
-    .print-header { display: none; }
-
     /* Page title row */
     .page-header {
       display: flex;
@@ -171,29 +168,9 @@
         margin: 0;
       }
 
-      /* Name / contact header */
-      .print-header {
-        display: block !important;
-        margin-bottom: 16pt;
-        border-bottom: 1.5pt solid #000;
-        padding-bottom: 8pt;
-      }
-
-      .print-header h1 {
-        font-size: 16pt;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 3pt;
-      }
-
-      .print-header p {
-        font-size: 9pt;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      /* Hide web-only page header */
-      .page-header { display: none; }
+      /* Page header: hide PDF button but show title */
+      .page-header { display: block; margin-bottom: 12pt; }
+      .pdf-link { display: none; }
 
       /* Sections */
       .cv-section {
@@ -290,16 +267,6 @@
 </header>
 
 <main>
-
-  <!-- 印刷時のみ表示するヘッダー -->
-  <div class="print-header">
-    <h1>Shintaro Yamaguchi</h1>
-    <p>
-      Professor, Faculty of Economics, University of Tokyo<br>
-      7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan<br>
-      syamaguchi@e.u-tokyo.ac.jp &nbsp;·&nbsp; https://shintaroyamaguchi.github.io
-    </p>
-  </div>
 
   <div class="page-header">
     <h1 class="page-title">Curriculum Vitae</h1>
