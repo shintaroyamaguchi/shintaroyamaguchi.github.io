@@ -27,6 +27,10 @@ body {
 a { color: var(--blue); text-decoration: none; }
 a:hover { color: var(--blue-lt); text-decoration: underline; }
 
+/* Content links: brighter color + underline so they're clearly clickable */
+main a { color: #0b66e4; text-decoration: underline; text-underline-offset: 2px; }
+main a:hover { color: #2e85ff; }
+
 /* ── Header / Nav ─────────────────────────────────────────────── */
 header {
   background: var(--navy);
