@@ -121,6 +121,19 @@ footer {
   color: var(--gray-lt);
 }
 
+footer .footer-links {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+}
+
+footer .footer-links a {
+  color: var(--gray-lt);
+}
+
+footer .footer-links a:hover {
+  color: var(--blue);
+}
+
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 640px) {
   nav { padding: 0.6rem 1.25rem; flex-wrap: wrap; height: auto; }
